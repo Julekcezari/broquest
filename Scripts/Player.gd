@@ -6,9 +6,10 @@ func _ready():
 	#player custom properties
 	acceleration = 1000
 	max_speed = 200
-	jump_speed = 500
+	jump_force = 500
 
-func apply_force(state):
+#moving
+func force(state):
 	if (in_ground == true):
 		can_jump = true
 	else:
@@ -22,10 +23,8 @@ func apply_force(state):
 		can_jump == false
 
 
-
+#checking if the player is on the ground
 func _on_ground_detection_body_enter( body ):
 	in_ground = true
-
-
 func _on_ground_detection_body_exit( body ):
 	in_ground = false

@@ -21,6 +21,7 @@ transform/pos = Vector2( 136.288, -297.717 )
 
 [node name="floor" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -6.1817, 3.09088 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -49,7 +50,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="platform" type="StaticBody2D" parent="."]
 
-transform/pos = Vector2( 242.225, -105.744 )
+transform/pos = Vector2( 285.545, -121.989 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -67,11 +68,13 @@ bounce = 0.0
 transform/pos = Vector2( 0, 0.0221796 )
 transform/scale = Vector2( 1, 0.0844314 )
 texture = ExtResource( 2 )
+__meta__ = { "_edit_lock_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
 
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
 
 

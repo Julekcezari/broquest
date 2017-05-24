@@ -2,7 +2,8 @@ extends RigidBody2D
 #default properties
 var acceleration = 1000
 var max_speed = 200
-var jump_speed = 600
+var jump_force = 600
+
 #movement vars
 var direction_force = Vector2()
 const DIRECTION = {
@@ -21,24 +22,16 @@ func _integrate_forces(state):
 	direction_force = DIRECTION.NONE
 	
 	#applying force
-	apply_force(state)
-	
-	final_force = state.get_linear_velocity() + (direction_force * acceleration)
+	force(state)
+
+	final_force = state.get_linear_velocity() + (acceleration * direction_force)
 	
 	#speed limit
-	if(final_force.x > max_speed):
-		final_force.x = max_speed
-	
-	elif(final_force.x < -max_speed):
-		final_force.x = -max_speed
-	
-	if(final_force.y < -jump_speed):
-		final_force.y = -jump_speed
-
-	if(final_force.y > jump_speed):
-		final_force.y = jump_speed
+	final_force.x = clamp(final_force.x, -max_speed, max_speed)
+	#jump force
+	final_force.y = clamp(final_force.y, -jump_force, jump_force )
 
 	state.set_linear_velocity(final_force)
 #this is replaced by the player or npc
-func apply_force(state):
+func force(state):
 	pass
