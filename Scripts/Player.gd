@@ -4,10 +4,9 @@ var in_ground = false
 var can_jump = false
 func _ready():
 	#player custom properties
-	acceleration = 10000
+	acceleration = 1000
 	max_speed = 400
 	jump_force = 600
-
 #moving
 func force(state):
 	if (in_ground == true):
@@ -20,7 +19,7 @@ func force(state):
 		direction_force += DIRECTION.RIGHT
 	if (Input.is_action_just_pressed("ui_up") && can_jump == true):
 		direction_force += DIRECTION.UP
-		can_jump == false
+
 
 
 #checking if the player is on the ground

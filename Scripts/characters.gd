@@ -3,7 +3,6 @@ extends RigidBody2D
 var acceleration = 1000
 var max_speed = 200
 var jump_force = 600
-
 #movement vars
 var direction_force = Vector2()
 const DIRECTION = {
@@ -25,7 +24,6 @@ func _integrate_forces(state):
 	force(state)
 
 	final_force = state.get_linear_velocity() + (acceleration * direction_force)
-	
 	#speed limit
 	final_force.x = clamp(final_force.x, -max_speed, max_speed)
 	#jump force
