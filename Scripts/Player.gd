@@ -4,9 +4,9 @@ var in_ground = false
 var can_jump = false
 func _ready():
 	#player custom properties
-	acceleration = 1000
-	max_speed = 200
-	jump_force = 500
+	acceleration = 10000
+	max_speed = 400
+	jump_force = 600
 
 #moving
 func force(state):
