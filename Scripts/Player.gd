@@ -27,3 +27,4 @@ func _on_ground_detection_body_enter( body ):
 	in_ground = true
 func _on_ground_detection_body_exit( body ):
 	in_ground = false
+
