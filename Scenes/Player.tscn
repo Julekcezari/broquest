@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/player/walk/walk0001.png" type="Texture" id=2]
@@ -13,11 +13,6 @@ height = 37.5036
 
 custom_solver_bias = 0.0
 extents = Vector2( 12.0127, 10.6295 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 57.122, 5.29035 )
 
 [node name="Player" type="RigidBody2D"]
 
@@ -65,11 +60,11 @@ limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
 limit/bottom = 10000000
-limit/smoothed = false
+limit/smoothed = true
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
+smoothing/enable = true
+smoothing/speed = 2.5
 drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
@@ -98,9 +93,6 @@ _update_shape_index = 0
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.521545, 57.215 )
-shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 2
 mode = 3
@@ -118,13 +110,6 @@ velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-
-transform/pos = Vector2( 0.521545, 57.215 )
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
 
 [connection signal="body_enter" from="ground_detection" to="." method="_on_ground_detection_body_enter"]
 
